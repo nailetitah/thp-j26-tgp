@@ -1,8 +1,9 @@
 <div class="text-center my-5">
 <h3><%= @gossip.title %></h3>
-<h1><%= @gossip.content %></h2>
+<h1>"<%= @gossip.content %>"</h2>
 <div class="my-4">
-<p>Gossip N°<%= @gossip.id %></p>
-<p>Par <%= link_to "#{@gossip.user.first_name}", user_path(@gossip.user.id) %>, le <%= @gossip_date %> </p>
+<p>Potin n°<%= @gossip.id %></p>
+<p>Rédigé le <%= @gossip_date %></br>Par <%= link_to "#{@gossip.user.first_name} #{@gossip.user.last_name}", user_path(@gossip.user.id) %></p>
 </div>
+			<%= link_to "Retour à l'accueil", root_path %>
 </div>

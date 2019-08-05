@@ -18,13 +18,13 @@ end
 puts "10 villes ont été générées."
 
 10.times do 
-  user = User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::Lorem.sentence, email: Faker::Internet.email, age: rand(18..90), city_id: rand(1..10) )
+  user = User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::ChuckNorris.fact, email: Faker::Internet.email, age: rand(18..90), city_id: rand(1..10) )
 end
 
 puts "10 users ont été générées."
 
 20.times do
-  gossip = Gossip.create!(title: Faker::Quote.singular_siegler, content: Faker::Movie.quote, user_id: rand(1..10))
+  gossip = Gossip.create!(title: Faker::Book.title, content: Faker::Movie.quote, user_id: rand(1..10))
 end
 
 puts "20 gossips ont été générées."

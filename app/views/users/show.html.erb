@@ -6,7 +6,7 @@
 	<div class="d-flex justify-content-center my-4">
 		<table class="table-striped table-sm table-hover text-left table-bordered">
 			<tr>
-				<td>Âge</td>
+				<td>Age</td>
 				<td><%= @user.age %></td>
 			</tr>
 			<tr>
@@ -21,10 +21,10 @@
 		</table>
 	</div>
 		<p>Nombre de potins à son actif : <%= @gossips_count %> </p>
-		<p class="d-flex justify-content-center text-left">
+		<p class="text-center">
 		<% if @gossips_count > 0 %>
-		<% @user_gossips.each do |gossip| %>
-		Potin n°<%= gossip.id %> : <%= gossip.title %>
+		<% @user_gossips.each do |gsp| %>
+		Potin n°<%= gsp.id %> : <%= gsp.title %> (<%= link_to "lien", gossip_path(gsp.id) %>)
 		</br>
 		<% end %>
 		<% end %>
