@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TGP</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    
+    <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity: 'sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin: 'anonymous' %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="mb-5">
+    <nav class="navbar navbar-light bg-secondary justify-content-center">
+      <div class="d-flex" id="navbarNavAltMarkup">
+        <%= link_to "Home", root_path, :class => 'nav-item nav-link text-light' %>
+        <%= link_to "Team", team_path, :class => 'nav-item nav-link text-light' %>
+        <%= link_to "Contact", contact_path, :class => 'nav-item nav-link text-light' %>
+    </div>
+    </nav>
+<div class="container">
+  <div class="justify-content-md-center">
+    <%= yield %>
+  </div>
+</div>
+  </body>
+</html>
+

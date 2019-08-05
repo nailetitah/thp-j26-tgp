@@ -1,0 +1,30 @@
+<div class="text-center my-5">
+<h1 >The Gossip Project</h1>
+<h3>Bienvenue au royaume des potins</h3>
+</div>
+<div class="row">
+
+<% Gossip.all.each do |gossip| %>
+
+  <div class="col-sm-3 my-3 ">
+
+<%= link_to gossip_path(gossip.user.id), :style => 'text-decoration:none', :action => 'go' do %>
+<div class="card bg-light shadow-sm">
+  <div class="card-header">
+    <span class="text-dark">Potin n°<%= gossip.id %> : <%= gossip.title %></span>
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p class="text-body"><%= gossip.content %></p>
+      <footer class="blockquote-footer"><%= gossip.user.first_name %></footer>
+    </blockquote>
+  </div>
+
+</div>
+  <% end %>
+
+</div>
+
+<% end %>
+
+</div>

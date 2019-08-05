@@ -1,0 +1,8 @@
+<div class="text-center my-5">
+<h3><%= @gossip.title %></h3>
+<h1><%= @gossip.content %></h2>
+<div class="my-4">
+<p>Gossip N°<%= @gossip.id %></p>
+<p>Par <%= link_to "#{@gossip.user.first_name}", user_path(@gossip.user.id) %>, le <%= @gossip_date %> </p>
+</div>
+</div>
