@@ -8,7 +8,7 @@
 
   <div class="col-sm-3 my-3 ">
 
-<%= link_to gossip_path(gossip.user.id), :style => 'text-decoration:none', :action => 'go' do %>
+<%= link_to gossip_path(gossip.id), :style => 'text-decoration:none', :action => 'go' do %>
 <div class="card bg-light shadow-sm">
   <div class="card-header">
     <span class="text-dark">Potin n°<%= gossip.id %> : <%= gossip.title %></span>
