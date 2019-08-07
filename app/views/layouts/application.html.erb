@@ -12,7 +12,7 @@
   </head>
 
   <body class="mb-5">
-    <nav class="navbar navbar-light bg-secondary justify-content-center">
+    <nav class="navbar navbar-light bg-primary justify-content-center">
       <div class="d-flex" id="navbarNavAltMarkup">
         <%= link_to "Home", root_path, :class => 'nav-item nav-link text-light' %>
         <%= link_to "Team", team_path, :class => 'nav-item nav-link text-light' %>
@@ -21,6 +21,9 @@
     </nav>
 <div class="container">
   <div class="justify-content-md-center">
+  <% if flash[:success] %>
+  <div class="alert alert-success text-center mt-5" role="alert"><%= flash[:success] %></div>
+  <% end %>
     <%= yield %>
   </div>
 </div>

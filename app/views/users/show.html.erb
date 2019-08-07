@@ -29,5 +29,14 @@
 		<% end %>
 		<% end %>
 	</p>
-			<%= link_to "Retour à l'accueil", root_path %>
+	<div class="mb-4">
+		<button class="btn btn-primary">
+			<%= link_to "Modifier l'utilisateur", edit_user_path(@user.id), 
+			:class => "text-white" %>
+		</button>
+		<button class="btn btn-danger">
+			<%= link_to "Supprimer l'utilisateur", user_path(@user.id), :data => {:confirm => "Vous êtes sûr ?", :method => "delete"}, :class => "text-white" %> 
+		</button>
+	</div>
+	<%= link_to "Retour à l'accueil", root_path %>
 </div>

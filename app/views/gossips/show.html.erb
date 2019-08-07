@@ -1,9 +1,19 @@
 <div class="text-center my-5">
-<h3><%= @gossip.title %></h3>
-<h1>"<%= @gossip.content %>"</h2>
-<div class="my-4">
-<p>Potin n°<%= @gossip.id %></p>
-<p>Rédigé le <%= @gossip_date %></br>Par <%= link_to "#{@gossip.user.first_name} #{@gossip.user.last_name}", user_path(@gossip.user.id) %></p>
+	<h3><%= @gossip.title %></h3>
+	<h1>"<%= @gossip.content %>"</h2>
+	<div class="my-4">
+	<p>Potin n°<%= @gossip.id %></p>
+	<p>Rédigé le <%= @gossip_date %></br>Par <%= link_to "#{@gossip.user.first_name} #{@gossip.user.last_name}", user_path(@gossip.user.id) %></p>
 </div>
-			<%= link_to "Retour à l'accueil", root_path %>
+
+<div class="mb-4">
+	<button class="btn btn-primary"><%= link_to "Modifier le potin", edit_gossip_path(@gossip.id), :class => "text-white" %></button>
+</div>
+<div class="mb-4">
+	<button class="btn btn-danger">
+		<%= link_to "Supprimer le potin", gossip_path(@gossip.id),
+    	:data => {:confirm => "Vous êtes sûr ?", :method => "delete"}, :class => "text-white" %>
+    </button>
+</div>
+	<%= link_to "Retour à l'accueil", root_path %>
 </div>
