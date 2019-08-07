@@ -16,7 +16,7 @@ class GossipsController < ApplicationController
   end
 
   def index
-    @gossips = Gossip.all
+    @gossips = Gossip.all.order("created_at DESC")
   end
 
   def show

@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   resources :welcome, controller: 'welcome'
   resources :gossips, controller: 'gossips'
   resources :users, controller: 'users'
+  resources :comments, controller: 'comments'
 
 end

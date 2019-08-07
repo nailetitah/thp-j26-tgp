@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.all
+    @users = User.all.order("created_at DESC")
   end
 
   def show 
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
     flash[:success] = "L'utilisateur a été supprimé."
-    redirect_to user_index_path
+    redirect_to root_path
   end
 
   private
