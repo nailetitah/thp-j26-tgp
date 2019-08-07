@@ -22,7 +22,7 @@
 
           <tr>
             <td>Ville</td>
-            <td><%= user.city_id %></td>
+            <td><%= City.find(user.city_id).name %></td>
           </tr>
         </table>
       </div>
