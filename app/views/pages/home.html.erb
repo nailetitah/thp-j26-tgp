@@ -21,8 +21,14 @@
         <footer class="blockquote-footer"><%= gossip.user.first_name %></footer>
       </blockquote>
     </div>
-
   </div>
+  <div class="my-2">
+              <% if gossip.comments.count == 1 %> 
+            <span class="text-dark"><%= gossip.comments.count %> commentaire</span>
+            <% elsif gossip.comments.count > 1 %>
+            <span class="text-dark"><%= gossip.comments.count %> commentaires</span>
+            <% end %>
+          </div>
     <% end %>
 
   </div>

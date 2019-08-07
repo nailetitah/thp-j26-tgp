@@ -8,5 +8,8 @@ Rails.application.routes.draw do
   resources :gossips, controller: 'gossips'
   resources :users, controller: 'users'
   resources :comments, controller: 'comments'
+  resources :gossips do
+    resources :comments
+  end
 
 end
