@@ -18,8 +18,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = "L'utilisateur a été ajouté."
-      redirect_to @user
+      session[:user_id] = @user.id
+      flash[:success] = "Inscription réussie. Vous êtes maintenant connecté."
+      redirect_to root_url
     else
       flash[:danger] = "Erreur."
       render 'new'
@@ -44,7 +45,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
     flash[:success] = "L'utilisateur a été supprimé."
-    redirect_to root_path
+    redirect_to root_url
   end
 
   private

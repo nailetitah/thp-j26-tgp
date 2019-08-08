@@ -23,6 +23,7 @@
   </div>
 <% end %>
 
+<!-- Like du potin -->
 <div class="mb-4">
   <% pre_like = @gossip.likes.find { |like| like.user_id == current_user.id} %>
   <% if pre_like %>
@@ -38,17 +39,13 @@
       </button>
     <% end %>
   <% end %>
-  
-
-</button>
-
 </div>
 
+<!-- Commentaires du potin -->
 <div class="mb-4">
-
-<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
-  Ajouter un commentaire
-</button>
+  <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
+    Ajouter un commentaire
+  </button>
 </div>
 	<%= link_to "Retour à l'accueil", root_path %>
 </div>

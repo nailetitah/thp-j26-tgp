@@ -1,0 +1,14 @@
+<div class="row mt-4">
+<% @cities.each do |city| %>
+  <div class="col-sm-4 my-3 ">
+    <div class="my-4">
+    	<%= city.name %>
+    	<% if city.users.first.gossips.any? %>
+    	<%= city.users.first.gossips %>
+    	<% else %>
+    	<span>Pas de gossip </span>
+    	<% end %>
+    </div>
+</div>
+<% end %>
+</div>

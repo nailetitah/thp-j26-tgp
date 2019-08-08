@@ -31,7 +31,7 @@ end
 puts "20 gossips ont été générées."
 
 10.times do
-  tag = Tag.create!(title: "##{Faker::Lorem.word}" )
+  tag = Tag.create!(title: "##{Faker::Creature::Animal}" )
 end
 puts "10 tags ont été générées."
 

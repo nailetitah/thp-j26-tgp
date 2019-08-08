@@ -5,17 +5,17 @@ class LikesController < ApplicationController
 
   def create
     @gossip.likes.create(user_id: current_user.id)
-    redirect_to gossip_path(@gossip)
+    redirect_to request.referrer
   end
 
   def destroy
-   @like.destroy
-  redirect_to gossip_path(@gossip)
+    @like.destroy
+    redirect_to request.referrer  
   end
 
   private
 
-    def find_like
+  def find_like
     @like = @gossip.likes.find(params[:id])
   end
 

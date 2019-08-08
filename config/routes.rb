@@ -3,12 +3,12 @@ Rails.application.routes.draw do
   root 'gossips#index'
   get 'team' => 'pages#team'
   get 'contact' => 'pages#contact'
-  get 'login' => 'pages#login'
   # Pages dynamiques
   resources :welcome, controller: 'welcome'
   resources :gossips, controller: 'gossips'
   resources :users, controller: 'users'
   resources :tags, controller: 'tags'
+  resources :cities, controller: 'cities'
   resources :gossips do
     resources :comments
   end
