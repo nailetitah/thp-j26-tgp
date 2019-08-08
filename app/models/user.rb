@@ -11,7 +11,7 @@ class User < ApplicationRecord
   validates :last_name, presence: true, length: { in: 1..30, 
   message: "please chose a last name between 2 and 30 caracters" }
   validates :description, presence: true, length: { in: 1..500, 
-  message: "please chose a description between 2 and 500 caracters" }
+  message: "please chose a description between 1 and 500 caracters" }
   validates :email, presence: true, uniqueness: true,
   format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "email adress please" }
   validates :age, presence: true, length: { is: 2, 
