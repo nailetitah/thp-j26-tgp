@@ -3,6 +3,7 @@ class Gossip < ApplicationRecord
   has_many :tag_links
   has_many :tags, through: :tag_links
   has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   #Validations
   validates :title, presence: true, length: { in: 1..50, 

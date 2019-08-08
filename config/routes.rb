@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   resources :gossips do
     resources :comments
   end
+  resources :gossips do
+    resources :likes
+  end
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'

@@ -24,6 +24,27 @@
 <% end %>
 
 <div class="mb-4">
+  <% pre_like = @gossip.likes.find { |like| like.user_id == current_user.id} %>
+  <% if pre_like %>
+    <%= link_to gossip_like_path(@gossip, pre_like), method: :delete, :action => 'go' do %>
+      <button type="button" class="btn btn-info">
+      J'aime <span class="badge badge-light"><%= @gossip.likes.count %></span>
+      </button>
+      <% end %>
+    <% else %>
+      <%= link_to gossip_likes_path(@gossip), method: :gossip, :action => 'go' do %>
+      <button type="button" class="btn btn-info">
+      J'aime <span class="badge badge-light"><%= @gossip.likes.count %></span>
+      </button>
+    <% end %>
+  <% end %>
+  
+
+</button>
+
+</div>
+
+<div class="mb-4">
 
 <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
   Ajouter un commentaire
