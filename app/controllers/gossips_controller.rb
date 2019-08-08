@@ -1,4 +1,5 @@
 class GossipsController < ApplicationController
+before_action :authenticate_user
 
   def new
     @gossip = Gossip.new
@@ -50,7 +51,14 @@ class GossipsController < ApplicationController
   private
 
   def gossip_params
-    params.require(:gossip).permit(:title, :content, :user_id)
+    params.require(:gossip).permit(:title, :content, :user_id, tag_ids: [])
+  end
+
+  def authenticate_user
+    unless current_user
+      flash[:danger] = "Veuillez vous connecter pour accéder aux potins."
+      redirect_to login_path
+    end
   end
 
 end

@@ -15,8 +15,11 @@
   <%= f.text_area :content, :class => 'form-control' %>
   </div>
   <div class="form-group my-4">
-  <%= f.label "Utilisateur" %> 
-  <%= f.collection_select(:user_id, User.all, :id, :first_name) %>
+  <%= f.label "Tags" %> 
+  <%= f.select :tag_ids, Tag.all.collect {|x| [x.title, x.id]}, {}, :multiple => true %>
+  </div>
+  <div class="d-none">
+  <%= f.text_field :user_id, :value => current_user.id %>
   </div>
   <div class="form-group my-4">
   <%= submit_tag "Valider", :class => 'w-100 btn btn-primary'  %>

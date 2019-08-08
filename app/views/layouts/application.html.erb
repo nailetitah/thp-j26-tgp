@@ -11,6 +11,8 @@
 
     <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity: 'sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin: 'anonymous' %>
 
+    <%= javascript_include_tag 'https://kit.fontawesome.com/b6feedaf85.js' %>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_include_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', integrity:'sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM', crossorigin: 'anonymous' %>
@@ -21,20 +23,46 @@
   <body class="mb-5">
     <nav class="navbar navbar-light bg-primary justify-content-center">
       <div class="d-flex" id="navbarNavAltMarkup">
-        <%= link_to "Home", root_path, :class => 'nav-item nav-link text-light' %>
+        <%= link_to "Accueil", root_path, :class => 'nav-item nav-link text-light' %>
         <%= link_to "Team", team_path, :class => 'nav-item nav-link text-light' %>
         <%= link_to "Contact", contact_path, :class => 'nav-item nav-link text-light' %>
-        <button class="btn btn-light ml-5"><%= link_to "Ajouter un utilisateur", new_user_path, :class => 'text-dark' %></button>
+
+        <!-- Vues utilisateurs selon statut -->
+
+          <span class="dropdown">
+            <a class="nav-item nav-link text-light" href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="far fa-user"></i>
+        <% if logged_in? %>
+            <span class="mx-1"><%= current_user.first_name %></span>
+            </a>
+            <div class="dropdown-menu">
+              <p><%= link_to "Profil", current_user, :class => 'mx-2 text-dark text-decoration-none' %></p>
+                <%= link_to "Se déconnecter", logout_path, method: :delete, :class => 'mx-2 text-dark text-decoration-none' %>
+              </div>
+            </span>
+        <% else %>
+            <span class="mx-1">Connexion</span>
+            </a>
+            <div class="dropdown-menu">
+              <p><%= link_to "Se connecter", login_path, :class => 'mx-2 text-dark text-decoration-none' %></p>
+                <%= link_to "Créer un compte", new_user_path, :class => 'mx-2 text-dark text-decoration-none' %>
+              </div>
+            </span>
+        <% end %>
     </div>
     </nav>
-<div class="container">
-  <div class="justify-content-md-center">
-  <% if flash[:success] %>
-  <div class="alert alert-success text-center mt-5" role="alert"><%= flash[:success] %></div>
-  <% end %>
-    <%= yield %>
-  </div>
-</div>
+    <div class="container">
+      <div class="justify-content-md-center">
+      <% if flash[:success] %>
+      <div class="alert alert-success text-center mt-5" role="alert"><%= flash[:success] %></div>
+      <% elsif flash[:danger] %>
+      <div class="alert alert-danger text-center mt-5" role="alert"><%= flash[:danger] %></div>
+      <% end %>
+
+        <%= yield %>
+
+      </div>
+    </div>
   </body>
 </html>
 

@@ -7,16 +7,24 @@
 </div>
 
 <div class="mb-4">
-	<button class="btn btn-primary"><%= link_to "Modifier le potin", edit_gossip_path(@gossip.id), :class => "text-white" %></button>
+    <%= render @gossip.tags %>
 </div>
+
+<!-- Modification du potin autorisée que si user logué = créateur du potin -->
+<% if current_user.id == @gossip.user.id %>
+  <div class="mb-4">
+  	<button class="btn btn-primary"><%= link_to "Modifier le potin", edit_gossip_path(@gossip.id), :class => "text-white text-decoration-none" %></button>
+  </div>
+  <div class="mb-4">
+  	<button class="btn btn-danger">
+  		<%= link_to "Supprimer le potin", gossip_path(@gossip.id),
+      	:data => {:confirm => "Vous êtes sûr ?", :method => "delete"}, :class => "text-white text-decoration-none" %>
+      </button>
+  </div>
+<% end %>
+
 <div class="mb-4">
-	<button class="btn btn-danger">
-		<%= link_to "Supprimer le potin", gossip_path(@gossip.id),
-    	:data => {:confirm => "Vous êtes sûr ?", :method => "delete"}, :class => "text-white" %>
-    </button>
-</div>
-<div class="mb-4">
-<!-- Button trigger modal -->
+
 <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
   Ajouter un commentaire
 </button>
@@ -24,19 +32,19 @@
 	<%= link_to "Retour à l'accueil", root_path %>
 </div>
 
+<!-- Fenêtre Modal -->
 <div class="my-2 text-center">
-	<div class="text-left w-50" style="margin:0 auto">
-<% if @gossip.comments.any? %>
-	<h6>Commentaires</h6>
-		<%= render @gossip.comments %>
-<% else %>
-	<p class="text-dark text-center">Pas de commentaire.</p>
-<% end %>
-	</div>
+  	<div class="text-left w-50" style="margin:0 auto">
+  <% if @gossip.comments.any? %>
+  	<h6>Commentaires</h6>
+  		<%= render @gossip.comments %>
+  <% else %>
+  	<p class="text-dark text-center">Pas de commentaire.</p>
+  <% end %>
+  	</div>
 </div>
 
 <div class="my-4 text-center">
-
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

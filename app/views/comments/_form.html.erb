@@ -1,8 +1,6 @@
-
 <%= form_for [ @gossip, @comment ] do |f| %>
-  <div class="form-group mb-3">
-  <%= f.label "Auteur" %><br>
-  <%= f.text_field :author, :class => 'form-control' %>
+  <div class="d-none">
+  <%= f.text_field :author, :value => current_user.first_name %>
   </div>
   <div class="form-group mb-3">
   <%= f.label "Commentaire" %><br>
@@ -12,5 +10,3 @@
   <%= submit_tag "Valider", :class => 'btn btn-primary'  %>
   </div>
 <% end %>
-
-

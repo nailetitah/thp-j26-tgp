@@ -18,7 +18,8 @@ end
 puts "10 villes ont été générées."
 
 10.times do 
-  user = User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::ChuckNorris.fact, email: Faker::Internet.email, age: rand(18..90), city_id: rand(1..10) )
+  pwd = Faker::Internet.password
+  user = User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::ChuckNorris.fact, email: Faker::Internet.email, age: rand(18..90), password: pwd, password_confirmation: pwd, city_id: rand(1..10) )
 end
 
 puts "10 users ont été générées."

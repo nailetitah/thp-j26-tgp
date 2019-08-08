@@ -21,6 +21,7 @@ class UsersController < ApplicationController
       flash[:success] = "L'utilisateur a été ajouté."
       redirect_to @user
     else
+      flash[:danger] = "Erreur."
       render 'new'
     end 
   end
@@ -49,7 +50,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :description, :email, :age, :city_id)
+    params.require(:user).permit(:first_name, :last_name, :description, :email, :age, :password, :password_confirmation, :city_id)
   end
 
   def find_user

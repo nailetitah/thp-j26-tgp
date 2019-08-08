@@ -20,7 +20,7 @@
 			</tr>
 		</table>
 	</div>
-		<p>Nombre de potins à son actif : <%= @gossips_count %> </p>
+		<p>Nombre de potins : <%= @gossips_count %> </p>
 		<p class="text-center">
 		<% if @gossips_count > 0 %>
 		<% @user_gossips.each do |gsp| %>
@@ -32,10 +32,10 @@
 	<div class="mb-4">
 		<button class="btn btn-primary">
 			<%= link_to "Modifier l'utilisateur", edit_user_path(@user.id), 
-			:class => "text-white" %>
+			:class => "text-white text-decoration-none" %>
 		</button>
 		<button class="btn btn-danger">
-			<%= link_to "Supprimer l'utilisateur", user_path(@user.id), :data => {:confirm => "Vous êtes sûr ?", :method => "delete"}, :class => "text-white" %> 
+			<%= link_to "Supprimer l'utilisateur", user_path(@user.id), :data => {:confirm => "Vous êtes sûr ?", :method => "delete"}, :class => "text-white text-decoration-none" %> 
 		</button>
 	</div>
 	<%= link_to "Retour à l'accueil", root_path %>
